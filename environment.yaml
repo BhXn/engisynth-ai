@@ -1,0 +1,16 @@
+name: engisynth
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pandas
+  - scikit-learn
+  - lightgbm
+  - matplotlib
+  - pyyaml
+  - openml
+  - pip
+  - pip:
+    - sdv
+    - synthcity
+    - tabpfn
