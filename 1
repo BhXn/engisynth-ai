@@ -1,0 +1,14 @@
+from synthcity.plugins.core.generative.ctgan import CTGANPlugin
+from .base import BaseGenerator
+import pandas as pd
+
+class CTGANAdapter(BaseGenerator):
+    def __init__(self, epochs=300, batch_size=64):
+        self.model = CTGANPlugin(epochs=epochs, batch_size=batch_size)
+
+    def fit(self, df: pd.DataFrame, **kwargs):
+        self.model.fit(df)
+
+    def sample(self, n: int) -> pd.DataFrame:
+        return self.model.generate(count=n)
+

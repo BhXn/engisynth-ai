@@ -1,0 +1,5 @@
+dataset: "arcene"
+target: "label"
+feature_types:
+  label: numerical
+

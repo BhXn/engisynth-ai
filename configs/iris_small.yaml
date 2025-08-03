@@ -1,0 +1,14 @@
+dataset: iris_small
+target: target
+feature_types:
+  sepal length (cm): numerical
+  sepal width (cm): numerical
+  petal length (cm): numerical
+  petal width (cm): numerical
+  target: categorical
+constraints: []            # 演示先不加约束
+generator:
+  type: ctgan
+  epochs: 100
+  batch_size: 32
+
