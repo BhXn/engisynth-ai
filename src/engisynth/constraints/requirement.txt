@@ -1,0 +1,27 @@
+# ==== Core data stack ====
+pandas>=2.2,<2.4
+numpy>=1.26,<1.28
+scikit-learn>=1.4,<1.6
+pyyaml>=6.0
+
+# ==== ML / GBDT ====
+lightgbm>=4.3,<4.4      # CPU 版即可
+xgboost>=2.0,<2.2
+
+# ==== Generative models ====
+synthcity>=0.5.0,<0.6    # 内含 CTGAN/TVAE 等
+
+# TabPFN 及其依赖（CPU 版 JAX，Apple 芯片或 Intel 均可）
+tabpfn>=0.1.12
+jax>=0.4.28
+jaxlib>=0.4.28           # Apple Silicon 自动装 cpu-osx wheel
+
+# ==== Visualization (可选但常用) ====
+matplotlib>=3.9,<3.10
+
+# ==== Dev / Lint ====
+black>=24.4
+isort>=5.13
+flake8>=7.0
+pre-commit>=3.6
+
