@@ -1,0 +1,105 @@
+# 硬件工程数据生成配置示例
+dataset: "hardware_module_data"
+target: "performance_score"
+
+# 特征类型定义
+feature_types:
+  # 来料参数
+  material_density: numerical
+  material_purity: numerical
+  supplier_id: categorical
+
+  # 制造参数
+  temperature: numerical
+  pressure: numerical
+  duration: numerical
+  cooling_rate: numerical
+
+  # 能量分布（守恒约束）
+  energy_heat: numerical
+  energy_kinetic: numerical
+  energy_potential: numerical
+
+  # 性能指标
+  performance_score: numerical
+
+# 约束定义
+constraints:
+  # 能量守恒约束
+  - type: sum_equal
+    cols: [energy_heat, energy_kinetic, energy_potential]
+    value: 100.0
+    tol: 0.01
+
+  # 温度范围约束
+  - type: range
+    cols: [temperature]
+    min: 20.0
+    max: 300.0
+
+  # 压力范围约束
+  - type: range
+    cols: [pressure]
+    min: 0.1
+    max: 10.0
+
+  # 材料纯度范围约束
+  - type: range
+    cols: [material_purity]
+    min: 0.95
+    max: 1.0
+
+  # 温度与冷却速率的单调关系
+  - type: monotonic
+    cols: [temperature, cooling_rate]
+    direction: increasing
+
+  # 材料密度与性能的相关性
+  - type: correlation
+    cols: [material_density, performance_score]
+    value: 0.7
+    tol: 0.15
+
+# 噪声配置（模拟测量误差）
+noise:
+  temperature:
+    type: gaussian
+    std: 2.0  # ±2度的测量误差
+    relative: false
+
+  pressure:
+    type: gaussian
+    std: 0.05  # ±0.05的测量误差
+    relative: false
+
+  material_purity:
+    type: uniform
+    scale: 0.002  # ±0.2%的测量误差
+    relative: true
+
+  performance_score:
+    type: gaussian
+    std: 0.5
+    relative: false
+
+# 归一化配置
+normalization:
+  temperature:
+    method: minmax
+
+  pressure:
+    method: log
+    offset: 0.01
+
+  material_density:
+    method: zscore
+
+  cooling_rate:
+    method: minmax
+
+# 生成器配置
+generator:
+  type: constrained_ctgan
+  epochs: 500
+  batch_size: 32
+  max_rejection_samples: 20000
