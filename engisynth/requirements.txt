@@ -4,7 +4,6 @@ openml==0.15.1
 pandas==2.3.1
 PyYAML==6.0.2
 scikit-learn==1.6.1
-synthcity==0.2.12
 torch==2.7.1
 torchaudio==2.7.1
 torchvision==0.22.1
