@@ -1,7 +1,7 @@
 from synthcity.plugins import Plugins
 from .constrained_generator import ConstrainedGenerator
 from .ctgan import CTGANAdapter
-from ..constraints.manager import ConstraintManager
+from ..constraints.manager_constraint import ConstraintManager
 from typing import Optional, Dict, Any, List
 import pandas as pd
 
