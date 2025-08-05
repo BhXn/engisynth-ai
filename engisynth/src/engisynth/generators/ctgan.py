@@ -1,18 +1,38 @@
-from synthcity.plugins import Plugins
+from sdv.single_table import CTGANSynthesizer
+from sdv.metadata import Metadata
 from .base import BaseGenerator
 import pandas as pd
 
+
 class CTGANAdapter(BaseGenerator):
     def __init__(self, epochs=300, batch_size=64, **kwargs):
-        # SynthCity 的 CTGAN 插件用 n_iter 表示训练轮数
-        self.plugin = Plugins().get("ctgan", n_iter=epochs, batch_size=batch_size, **kwargs)
+        # SDV 的 CTGAN 参数
+        self.epochs = epochs
+        self.batch_size = batch_size
+        self.kwargs = kwargs
+        self.model = None
+        self.metadata = None
 
     def fit(self, df: pd.DataFrame, **kwargs):
-        # 直接传 DataFrame；如果有条件可以用 cond=...
-        self.plugin.fit(df, **kwargs)
+        # 创建 metadata 对象 - SDV 需要这个来了解数据结构
+        self.metadata = Metadata.detect_from_dataframe(df)
+
+        # 创建 CTGAN 模型
+        self.model = CTGANSynthesizer(
+            metadata=self.metadata,
+            pac=1,
+            epochs=self.epochs,
+            batch_size=self.batch_size,
+            **self.kwargs
+        )
+
+        # 训练模型
+        self.model.fit(df)
 
     def sample(self, n: int, **kwargs) -> pd.DataFrame:
-        # generate 返回的是 DataLoader，要调用 .dataframe()
-        loader = self.plugin.generate(count=n, **kwargs)
-        return loader.dataframe()
+        if self.model is None:
+            raise ValueError("Model has not been fitted yet. Call fit() first.")
+
+        # SDV 的 sample 方法直接返回 DataFrame
+        return self.model.sample(num_rows=n)
 

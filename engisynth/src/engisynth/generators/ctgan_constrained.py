@@ -1,7 +1,6 @@
-from synthcity.plugins import Plugins
 from .constrained_generator import ConstrainedGenerator
 from .ctgan import CTGANAdapter
-from ..constraints.manager_constraint import ConstraintManager
+from ..constraints.manager import ConstraintManager
 from typing import Optional, Dict, Any, List
 import pandas as pd
 
@@ -47,7 +46,7 @@ class ConstrainedCTGAN(ConstrainedGenerator):
         """生成满足条件的样本"""
         if conditions:
             # 如果有条件，使用条件生成
-            # 注意：这需要SynthCity的CTGAN支持条件生成
+            # 注意：SDV 的 CTGAN 支持条件生成，但需要在 sample 时传入 conditions
             print("Conditional generation is not yet implemented")
 
         return self.sample(n, max_rejection_samples)

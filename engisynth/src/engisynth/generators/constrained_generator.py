@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from typing import Optional, Dict, Any, List
 from .base import BaseGenerator
-from ..constraints.manager_constraint import ConstraintManager
+from ..constraints.manager import ConstraintManager
 
 
 class ConstrainedGenerator(BaseGenerator):

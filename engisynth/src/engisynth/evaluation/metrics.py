@@ -4,7 +4,7 @@ import lightgbm as lgb
 import numpy as np
 import pandas as pd
 
-from engisynth.data.preprocess import build_preprocessor
+from ..data.preprocess import build_preprocessor
 
 def delta_r(
     original: pd.DataFrame,

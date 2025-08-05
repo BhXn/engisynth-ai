@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-08-05T21:53:14.897608",
+  "config_file": ".\\engisynth\\configs\\iris_small.yaml",
+  "input_file": ".\\engisynth\\data\\iris_small.csv",
+  "generator_type": "ctgan",
+  "data_shape": [
+    50,
+    5
+  ],
+  "synthetic_shape": [
+    50,
+    5
+  ],
+  "task_type": "classification",
+  "delta_r": 0.6724386724386724,
+  "constraints": {
+    "original": {},
+    "synthetic": {}
+  }
+}

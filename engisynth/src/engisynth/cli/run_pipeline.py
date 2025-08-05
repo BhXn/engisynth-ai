@@ -5,12 +5,12 @@ import os
 import json
 from datetime import datetime
 
-from engisynth.config.load import load_config
-from engisynth.data.io import read_table
-from engisynth.generators.ctgan import CTGANAdapter
-from engisynth.generators.ctgan_constrained import ConstrainedCTGAN
-from engisynth.evaluation.metrics import delta_r
-from engisynth.constraints.manager import ConstraintManager
+from ..config.load import load_config
+from ..data.io import read_table
+from ..generators.ctgan import CTGANAdapter
+from ..generators.ctgan_constrained import ConstrainedCTGAN
+from ..evaluation.metrics import delta_r
+from ..constraints.manager import ConstraintManager
 
 
 def create_generator(cfg):
