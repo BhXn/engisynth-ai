@@ -100,7 +100,7 @@ python -m engisynth.cli.run_pipeline \
 
 ### 4. 半自动识别约束
 ```bash
-python -m engisynth.src.engisynth.cli.create_config \
+python engisynth/scripts/auto_detect_constraints.py \
     --csv engisynth/data/hardware_test.csv \
     --out engisynth/configs/hardware_test_autogen.yaml \
     --target performance_score

@@ -1,7 +1,7 @@
 dataset: /Users/orion/Documents/td/engisynth-ai/engisynth/data/dataset-uci.csv
-target: null
+target: GallstoneStatus
 feature_types:
-  Gallstone Status: categorical
+  GallstoneStatus: categorical
   Age: numerical
   Gender: categorical
   Comorbidity: categorical
@@ -43,7 +43,7 @@ feature_types:
 constraints:
 - type: range
   cols:
-  - Gallstone Status
+  - GallstoneStatus
   min: 0.0
   max: 1.0
 - type: range
@@ -116,86 +116,6 @@ constraints:
   - Extracellular Fluid/Total Body Water (ECF/TBW)
   min: 34.1296
   max: 48.82
-- type: range
-  cols:
-  - Total Body Fat Ratio (TBFR) (%)
-  min: 11.318
-  max: 46.601
-- type: range
-  cols:
-  - Lean Mass (LM) (%)
-  min: 53.3826
-  max: 88.6574
-- type: range
-  cols:
-  - Body Protein Content (Protein) (%)
-  min: 9.7848
-  max: 21.9038
-- type: range
-  cols:
-  - Visceral Fat Rating (VFR)
-  min: 1.0
-  max: 20.0
-- type: range
-  cols:
-  - Bone Mass (BM)
-  min: 1.918
-  max: 3.8
-- type: range
-  cols:
-  - Muscle Mass (MM)
-  min: 35.216
-  max: 75.282
-- type: range
-  cols:
-  - Obesity (%)
-  min: 1.1
-  max: 96.4518
-- type: range
-  cols:
-  - Total Fat Content (TFC)
-  min: 6.918
-  max: 50.328
-- type: range
-  cols:
-  - Visceral Fat Area (VFA)
-  min: 2.481
-  max: 28.7544
-- type: range
-  cols:
-  - Visceral Muscle Area (VMA) (Kg)
-  min: 20.508
-  max: 40.264
-- type: range
-  cols:
-  - Hepatic Fat Accumulation (HFA)
-  min: 0.0
-  max: 3.0
-- type: range
-  cols:
-  - Glucose
-  min: 79.18
-  max: 317.62
-- type: range
-  cols:
-  - Total Cholesterol (TC)
-  min: 110.9
-  max: 323.92
-- type: range
-  cols:
-  - Low Density Lipoprotein (LDL)
-  min: 41.98
-  max: 223.46
-- type: range
-  cols:
-  - High Density Lipoprotein (HDL)
-  min: 26.0
-  max: 85.28
-- type: range
-  cols:
-  - Triglyceride
-  min: 34.0
-  max: 462.38
 - type: range
   cols:
   - Aspartat Aminotransferaz (AST)
