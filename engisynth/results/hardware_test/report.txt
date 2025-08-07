@@ -1,0 +1,10 @@
+=== Synthetic Data Generation Report ===
+
+Timestamp: 2025-08-07T22:07:30.858966
+Generator: ctgan
+Input shape: (2000, 11)
+Output shape: (2000, 11)
+Task type: regression
+
+ΔR (relative performance difference): -6.7226
+(Lower is better, 0 means perfect reproduction)
