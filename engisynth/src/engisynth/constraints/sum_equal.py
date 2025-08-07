@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from .base import Constraint
 
 
@@ -19,24 +18,27 @@ class SumEqual(Constraint):
         """将数据投影到满足约束的空间"""
         df_proj = df.copy()
 
-        # 计算当前和
-        current_sum = df_proj[self.cols].sum(axis=1)
+        # 1. 计算每行当前和
+        sums = df_proj[self.cols].sum(axis=1)
 
-        # 对于和不为0的行，按比例调整
-        mask = current_sum != 0
-        if mask.any():
-            # 计算缩放因子
-            scale_factor = self.value / current_sum[mask]
+        # 2. 选出未满足约束的行
+        mask_unsat = (sums - self.value).abs() >= self.tol
+        if not mask_unsat.any():
+            return df_proj
 
-            # 按比例调整每列的值
-            for col in self.cols:
-                df_proj.loc[mask, col] *= scale_factor
+        # 3. 对于和不为零的未满足行，按比例缩放
+        nonzero = (sums != 0) & mask_unsat
+        if nonzero.any():
+            factors = self.value / sums.loc[nonzero]
+            df_proj.loc[nonzero, self.cols] = (
+                df_proj.loc[nonzero, self.cols]
+                .multiply(factors, axis=0)
+            )
 
-        # 对于和为0的行，均匀分配
-        zero_mask = ~mask
-        if zero_mask.any():
+        # 4. 对于和为零的未满足行，均匀分配
+        zero_sum = (~nonzero) & mask_unsat
+        if zero_sum.any():
             uniform_value = self.value / len(self.cols)
-            for col in self.cols:
-                df_proj.loc[zero_mask, col] = uniform_value
+            df_proj.loc[zero_sum, self.cols] = uniform_value
 
         return df_proj

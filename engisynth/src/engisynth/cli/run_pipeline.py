@@ -21,17 +21,17 @@ def create_generator(cfg):
             batch_size=cfg.generator.batch_size
         )
     elif cfg.generator.type == "constrained_ctgan":
-        # 准备噪声配置 - 修复：使用 model_dump() 替代 dict()
+        # 准备噪声配置
         noise_config = {}
         for col, noise_cfg in cfg.noise.items():
             noise_config[col] = noise_cfg.model_dump()
 
-        # 准备归一化配置 - 修复：使用 model_dump() 替代 dict()
+        # 准备归一化配置
         norm_config = {}
         for col, norm_cfg in cfg.normalization.items():
             norm_config[col] = norm_cfg.model_dump()
 
-        # 准备约束配置 - 修复：使用 model_dump() 替代 dict()
+        # 准备约束配置
         constraints_cfg = [c.model_dump() for c in cfg.constraints]
 
         return ConstrainedCTGAN(
