@@ -43,5 +43,6 @@ def delta_r(
 
     r0 = train_eval(Xo, yo)
     r1 = train_eval(Xs, ys)
+    print(f"r0: {r0}, r1: {r1}")
     return abs(r0 - r1) / r0
 

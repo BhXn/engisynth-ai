@@ -33,6 +33,10 @@ python src/engisynth/cli/run_pipeline.py \
 - **均匀噪声**: 模拟均匀分布的误差
 - **量化噪声**: 模拟数字化测量的量化效应
 
+
+### 4. 自动约束识别
+...
+
 ## 使用方法
 
 ### 1. 生成测试数据
@@ -93,6 +97,14 @@ python -m engisynth.cli.run_pipeline \
     --verbose
 ```
 
+
+### 4. 半自动识别约束
+```bash
+python -m engisynth.src.engisynth.cli.create_config \
+    --csv engisynth/data/hardware_test.csv \
+    --out engisynth/configs/hardware_test_autogen.yaml \
+    --target performance_score
+```
 ## 约束处理流程
 
 1. **数据归一化**: 根据配置对原始数据进行归一化处理

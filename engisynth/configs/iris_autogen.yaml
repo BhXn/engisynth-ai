@@ -1,0 +1,40 @@
+dataset: /Users/orion/Documents/td/engisynth-ai/engisynth/data/iris_small.csv
+target: null
+feature_types:
+  sepal length (cm): numerical
+  sepal width (cm): categorical
+  petal length (cm): numerical
+  petal width (cm): categorical
+  target: categorical
+constraints:
+- type: range
+  cols:
+  - sepal length (cm)
+  min: 4.498
+  max: 7.802
+- type: range
+  cols:
+  - sepal width (cm)
+  min: 2.298
+  max: 4.253
+- type: range
+  cols:
+  - petal length (cm)
+  min: 1.147
+  max: 6.655
+- type: range
+  cols:
+  - petal width (cm)
+  min: 0.1
+  max: 2.402
+- type: range
+  cols:
+  - target
+  min: 0.0
+  max: 2.0
+generator:
+  type: ctgan
+  epochs: 300
+  batch_size: 64
+noise: {}
+normalization: {}

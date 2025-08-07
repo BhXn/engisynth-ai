@@ -1,0 +1,21 @@
+dataset: /Users/orion/Documents/td/engisynth-ai/engisynth/data/hardware_test.csv
+target: performance_score
+feature_types:
+  material_density: numerical
+  material_purity: numerical
+  supplier_id: categorical
+  temperature: numerical
+  pressure: numerical
+  duration: numerical
+  cooling_rate: numerical
+  energy_heat: numerical
+  energy_kinetic: numerical
+  energy_potential: numerical
+  performance_score: numerical
+constraints: []
+generator:
+  type: ctgan
+  epochs: 300
+  batch_size: 64
+noise: {}
+normalization: {}
