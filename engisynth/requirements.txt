@@ -7,5 +7,9 @@ sdv>=1.5
 lightgbm>=4.2
 
 
+# 可选依赖 - TabDDPM
+# tabddpm  # 需要手动安装或从源码安装
 
+# 可选依赖 - TabPFN
+# tabpfn>=0.1.0  # 需要手动安装
 
