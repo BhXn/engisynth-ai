@@ -464,16 +464,9 @@ def delta_r_multiple_runs(
         )
         all_results.append(result)
 
-<<<<<<< Updated upstream
-    r0 = train_eval(Xo, yo)
-    r1 = train_eval(Xs, ys)
-    print(f"r0: {r0}, r1: {r1}")
-    return abs(r0 - r1) / r0
-=======
     # 汇总结果
     model_names = list(all_results[0].keys())
     final_results = {}
->>>>>>> Stashed changes
 
     for model_name in model_names:
         model_deltas = [run[model_name]["delta_r"] for run in all_results
