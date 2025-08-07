@@ -1,8 +1,8 @@
-# 硬件工程数据生成配置示例
-dataset: "hardware_module_data"
+# 改进后的硬件工程数据集配置
+dataset: "hardware_test_data"
 target: "performance_score"
 
-# 特征类型定义
+# ===== 特征类型 =====
 feature_types:
   # 来料参数
   material_density: numerical
@@ -20,76 +20,68 @@ feature_types:
   energy_kinetic: numerical
   energy_potential: numerical
 
-  # 性能指标
-  performance_score: numerical
-
-# 约束定义
+# ===== 约束定义 =====
 constraints:
-  # 能量守恒约束
+  # 能量守恒
   - type: sum_equal
     cols: [energy_heat, energy_kinetic, energy_potential]
     value: 100.0
-    tol: 0.01
+    tol: 0.01          # ≤0.01 误差
 
-  # 温度范围约束
+  # 温度范围
   - type: range
     cols: [temperature]
     min: 20.0
     max: 300.0
 
-  # 压力范围约束
+  # 压力范围
   - type: range
     cols: [pressure]
     min: 0.1
     max: 10.0
 
-  # 材料纯度范围约束
+  # 材料纯度范围
   - type: range
     cols: [material_purity]
     min: 0.95
     max: 1.0
 
-  # 温度与冷却速率的单调关系
-  - type: monotonic
-    cols: [temperature, cooling_rate]
-    direction: increasing
-
-  # 材料密度与性能的相关性
+  # 温度与冷却速率应保持正相关（而非严格单调）
   - type: correlation
-    cols: [material_density, performance_score]
-    value: 0.7
-    tol: 0.15
+    cols: [temperature, cooling_rate]
+    value: 0.5         # 经验正相关系数约 0.5
+    tol: 0.10
 
-# 噪声配置（模拟测量误差）
-noise:
-  temperature:
-    type: gaussian
-    std: 2.0  # ±2度的测量误差
-    relative: false
+## ===== 噪声配置（可选）=====
+## ⚠️ 如需生效，请在数据生成逻辑里实际注入这些噪声
+#noise:
+#  temperature:
+#    type: gaussian
+#    std: 2.0
+#    relative: false
+#
+#  pressure:
+#    type: gaussian
+#    std: 0.05
+#    relative: false
+#
+#  material_purity:
+#    type: uniform
+#    scale: 0.002       # ±0.2 %
+#    relative: true
+#
+#  performance_score:
+#    type: gaussian
+#    std: 0.5
+#    relative: false
 
-  pressure:
-    type: gaussian
-    std: 0.05  # ±0.05的测量误差
-    relative: false
-
-  material_purity:
-    type: uniform
-    scale: 0.002  # ±0.2%的测量误差
-    relative: true
-
-  performance_score:
-    type: gaussian
-    std: 0.5
-    relative: false
-
-# 归一化配置
+# ===== 归一化配置 =====
 normalization:
   temperature:
     method: minmax
 
   pressure:
-    method: log
-    offset: 0.01
+    method: log        # 无 offset，直接 log(x)
 
   material_density:
     method: zscore
@@ -97,7 +89,10 @@ normalization:
   cooling_rate:
     method: minmax
 
-# 生成器配置
+  duration:
+    method: log        # 长尾分布建议对数缩放
+
+# ===== 生成器配置 =====
 generator:
   type: constrained_ctgan
   epochs: 500
