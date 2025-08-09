@@ -1,0 +1,53 @@
+Title: Gallstone-1 data
+
+Sources:
+(a) Dataset origin: Collected from the Internal Medicine Outpatient Clinic of Ankara VM Medical Park Hospital (June 2022 – June 2023); donated on 19 April 2025.
+(b) Introduced in study: "Early prediction of gallstone disease with a machine learning-based method from bioimpedance and laboratory data" by Esen et al., published in Medicine (2024).
+(c) Citation: Esen, I., Arslan, H., Aktürk Esen, S., Gülşen, M., Kültekin, N., & Özdemir, O. (2024). Gallstone-1 Dataset. UCI Machine Learning Repository.
+
+Relevant information:
+This dataset comprises clinical data from 319 individuals (though reported as 320 instances overall); among them, 161 were diagnosed with gallstone disease. It includes 38 real-valued features spanning demographic, bioimpedance, and laboratory measurements. The dataset has no missing values and is relatively balanced across disease status, making it suitable for machine learning tasks.
+
+Data simulation:
+Not applicable — this dataset contains real clinical measurements, not simulated data.
+
+Class information:
+
+1. class    gallstones present = 0, gallstones absent = 1 (binary)
+
+Variable Information:
+(All variables are either numerical continuous, integer, or binary categorical)
+
+1. Gallstone Status (target)    binary: 0 = gallstones present, 1 = absent
+2. Age    integer, years
+3. Gender    categorical: 0 = male, 1 = female
+4. Comorbidity    categorical: 0 = none, 1 = one, 2 = two, 3 = three or more
+5. Coronary Artery Disease (CAD)    binary: 0 = no, 1 = yes
+6. Hypothyroidism    binary: 0 = no, 1 = yes
+7. Hyperlipidemia    binary: 0 = no, 1 = yes
+8. Diabetes Mellitus (DM)    binary: 0 = no, 1 = yes
+9. Height    integer, cm
+10. Weight    continuous, kg
+11. BMI    real number
+12. Total water    real number
+13. Extracellular water    real number
+14. Intracellular water    real number
+15. Muscle mass    real number
+16. Fat mass    real number
+17. Protein    real number
+18. Visceral fat area    real number
+19. Hepatic fat    real number
+20. Glucose    real number
+21. Total cholesterol    real number
+22. HDL    real number
+23. LDL    real number
+24. Triglycerides    real number
+25. AST    real number
+26. ALT    real number
+27. ALP    real number
+28. Creatinine    real number
+29. GFR    real number
+30. CRP    real number
+31. Hemoglobin    real number
+32. Vitamin D    real number
+

@@ -1,0 +1,26 @@
+======================================================================
+SYNTHETIC DATA GENERATION REPORT
+======================================================================
+
+Timestamp: 2025-08-09T21:56:32.979822
+Generator: ctgan (CTGANAdapter)
+Input file: data/dataset-uci.csv
+Config file: configs/dataset-uci_autogen.yaml
+
+--- Data Information ---
+Original shape: (319, 39)
+Synthetic shape: (1000, 39)
+Target column: Gallstone Status
+Task type: classification
+
+--- Performance Metrics ---
+ΔR (relative performance difference): 0.4941
+(Lower is better, 0 means perfect reproduction)
+Training time: 18.96 seconds
+Generation time: 0.08 seconds
+Generation rate: 12343.5 samples/second
+
+--- Model-Specific Metrics ---
+unique_ratio_original: 1.0000
+unique_ratio_synthetic: 1.0000
+

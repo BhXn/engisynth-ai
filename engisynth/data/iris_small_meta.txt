@@ -1,0 +1,24 @@
+Title: Iris data
+
+Sources:
+(a) Dataset origin: Collected by Edgar Anderson from the Gaspe Peninsula, Quebec, Canada.
+(b) First used by Ronald A. Fisher in "The use of multiple measurements in taxonomic problems" (Annals of Eugenics, 1936).
+(c) Available from the UCI Machine Learning Repository.
+
+Relevant information:
+This dataset contains measurements for 150 iris flowers from three species: Iris setosa, Iris versicolor, and Iris virginica. Each species has exactly 50 samples. The dataset is balanced, has no missing values, and is widely used for demonstrating classification algorithms.
+
+Data simulation:
+Not applicable — this dataset contains real measurements collected from flowers.
+
+Class information:
+
+1. class    Iris setosa, Iris versicolor, Iris virginica (3 classes)
+
+Variable Information:
+(All variables are numerical continuous)
+
+1. Sepal length (cm)    real number
+2. Sepal width (cm)     real number
+3. Petal length (cm)    real number
+4. Petal width (cm)     real number

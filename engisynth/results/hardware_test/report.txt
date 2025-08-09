@@ -1,10 +1,28 @@
 === Synthetic Data Generation Report ===
 
-Timestamp: 2025-08-07T22:07:30.858966
-Generator: ctgan
-Input shape: (2000, 11)
-Output shape: (2000, 11)
+Timestamp: 2025-08-09T20:58:54.227370
+Generator: constrained_ctgan
+Input shape: (200, 11)
+Output shape: (200, 11)
 Task type: regression
 
-ΔR (relative performance difference): -6.7226
+ΔR (relative performance difference): -7.2978
 (Lower is better, 0 means perfect reproduction)
+
+=== Constraint Satisfaction ===
+
+Original data:
+  SumEqual_0: 0.9600
+  RangeConstraint_1: 1.0000
+  RangeConstraint_2: 0.9850
+  RangeConstraint_3: 0.9850
+  CorrelationConstraint_4: 0.0000
+  overall: 0.7860
+
+Synthetic data:
+  SumEqual_0: 1.0000
+  RangeConstraint_1: 1.0000
+  RangeConstraint_2: 1.0000
+  RangeConstraint_3: 1.0000
+  CorrelationConstraint_4: 0.0000
+  overall: 0.8000

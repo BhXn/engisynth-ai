@@ -91,10 +91,10 @@ generator:
 
 ```bash
 python -m engisynth.cli.run_pipeline \
-    --csv data/hardware_test.csv \
-    --cfg configs/hardware_example.yaml \
-    --output results/hardware_test \
-    --verbose
+    --csv data/dataset-uci.csv \
+    --cfg configs/dataset-uci_autogen.yaml \
+    --output results/dataset-uci \
+    --n-samples 1000
 ```
 
 

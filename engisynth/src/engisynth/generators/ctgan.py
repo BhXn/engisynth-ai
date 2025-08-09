@@ -1,32 +1,27 @@
 from sdv.single_table import CTGANSynthesizer
-from sdv.metadata import Metadata
+from sdv.metadata import SingleTableMetadata
 from .base import BaseGenerator
 import pandas as pd
 
 
 class CTGANAdapter(BaseGenerator):
-    def __init__(self, epochs=300, batch_size=64, **kwargs):
-        # SDV 的 CTGAN 参数
-        self.epochs = epochs
-        self.batch_size = batch_size
-        self.kwargs = kwargs
+    def __init__(self, **kwargs):
+        self.model_kwargs = kwargs
         self.model = None
         self.metadata = None
 
     def fit(self, df: pd.DataFrame, **kwargs):
-        # 创建 metadata 对象 - SDV 需要这个来了解数据结构
-        self.metadata = Metadata.detect_from_dataframe(df)
+        self.metadata = SingleTableMetadata()
+        self.metadata.detect_from_dataframe(df)
+        
+        # 从kwargs中移除CTGANSynthesizer不接受的参数
+        init_kwargs = self.model_kwargs.copy()
+        init_kwargs.pop('max_rejection_samples', None)
 
-        # 创建 CTGAN 模型
         self.model = CTGANSynthesizer(
             metadata=self.metadata,
-            pac=1,
-            epochs=self.epochs,
-            batch_size=self.batch_size,
-            **self.kwargs
+            **init_kwargs
         )
-
-        # 训练模型
         self.model.fit(df)
 
     def sample(self, n: int, **kwargs) -> pd.DataFrame:

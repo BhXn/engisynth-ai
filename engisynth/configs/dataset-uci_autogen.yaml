@@ -44,6 +44,6 @@ constraints: []
 generator:
   type: ctgan
   epochs: 300
-  batch_size: 64
+  batch_size: 60
 noise: {}
 normalization: {}

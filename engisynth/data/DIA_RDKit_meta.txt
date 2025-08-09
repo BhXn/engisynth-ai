@@ -1,0 +1,37 @@
+Title: Drug Induced Autoimmunity Prediction data
+
+Sources:
+(a) Donated on 1 May 2025 to the UCI Machine Learning Repository. The dataset consists of molecular descriptors generated using RDKit, curated for the study of drug-induced autoimmunity via ensemble machine learning approaches. It’s organized into a training set and a testing set. These descriptors encode physicochemical and structural characteristics of drug molecules, with the aim of enabling predictive modeling for autoimmune risk assessment in drug candidates ([archive.ics.uci.edu][1]).
+(b) Introductory paper: “InterDIA: Interpretable Prediction of Drug‑induced Autoimmunity through Ensemble Machine Learning Approaches” by Xiaojie Huang et al., published in *Toxicology* in 2025 ([archive.ics.uci.edu][1]).
+
+Relevant information:
+The dataset contains 477 instances and 195 features, all numerical descriptors derived from molecular structure. It has no missing values. It supports classification tasks in computational toxicology, providing a solid basis for developing interpretable machine learning models to predict drug-induced autoimmunity ([archive.ics.uci.edu][1]).
+
+Data simulation:
+Not applicable — the dataset is based on real molecular descriptor calculations using RDKit, not simulated data.
+
+Class information:
+
+1. class    DIA-positive drugs = 1, DIA-negative drugs = 0 (binary) ([archive.ics.uci.edu][1]).
+
+Variable Information:
+Here’s an excerpt inspired by the structure of your previous examples (full variables list would include 195 descriptors):
+
+1. Label (target)    binary: 1 = DIA-positive, 0 = DIA-negative
+2. SMILES ID         categorical: SMILES string identifier
+3. BalabanJ          continuous feature, calculated descriptor
+4. BertzCT           continuous feature, calculated descriptor
+5. Chi0              continuous feature
+6. Chi0n             continuous feature
+7. Chi0v             continuous feature
+8. Chi1              continuous feature
+9. Chi1n             continuous feature
+10. Chi1v            continuous feature
+    ... (and so on, up to 195 molecular descriptor features) ([archive.ics.uci.edu][1]).
+
+Dataset files:
+
+* DIA\_trainingset\_RDKit\_descriptors.csv — approximately 350.9 KB
+* DIA\_testset\_RDKit\_descriptors.csv — approximately 90.6 KB
+* RDKit\_ChemDes.xlsx — approximately 20 KB ([archive.ics.uci.edu][1]).
+

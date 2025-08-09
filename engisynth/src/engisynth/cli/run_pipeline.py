@@ -425,6 +425,8 @@ def main():
                     help="列出所有可用的生成器类型")
     ap.add_argument("--dry-run", action="store_true",
                     help="仅验证配置，不执行实际训练和生成")
+    ap.add_argument("--n-samples", type=int, default=None,
+                    help="要生成的合成样本数量。如果未指定，则使用配置文件中的设置或原始数据大小。")
     args = ap.parse_args()
 
     # 如果请求列出生成器，则显示并退出
@@ -495,7 +497,10 @@ def main():
 
     # 生成合成数据
     print("\n--- Generation Phase ---")
-    n_samples = getattr(cfg.generator, 'n_samples', len(df))
+    # 优先级：命令行 --n-samples > 配置文件 cfg.generator.n_samples > 原始数据行数
+    n_samples = args.n_samples if args.n_samples is not None else getattr(cfg.generator, 'n_samples', None)
+    if n_samples is None:
+        n_samples = len(df)
     print(f"Generating {n_samples} synthetic samples...")
 
     start_time = datetime.now()

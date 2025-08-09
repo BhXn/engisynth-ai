@@ -1,0 +1,80 @@
+{
+  "timestamp": "2025-08-09T21:56:32.979822",
+  "config_file": "configs/dataset-uci_autogen.yaml",
+  "input_file": "data/dataset-uci.csv",
+  "generator": {
+    "type": "ctgan",
+    "class": "CTGANAdapter",
+    "params": {
+      "epochs": 300,
+      "batch_size": 60
+    }
+  },
+  "data": {
+    "original_shape": [
+      319,
+      39
+    ],
+    "synthetic_shape": [
+      1000,
+      39
+    ],
+    "columns": [
+      "Gallstone Status",
+      "Age",
+      "Gender",
+      "Comorbidity",
+      "Coronary Artery Disease (CAD)",
+      "Hypothyroidism",
+      "Hyperlipidemia",
+      "Diabetes Mellitus (DM)",
+      "Height",
+      "Weight",
+      "Body Mass Index (BMI)",
+      "Total Body Water (TBW)",
+      "Extracellular Water (ECW)",
+      "Intracellular Water (ICW)",
+      "Extracellular Fluid/Total Body Water (ECF/TBW)",
+      "Total Body Fat Ratio (TBFR) (%)",
+      "Lean Mass (LM) (%)",
+      "Body Protein Content (Protein) (%)",
+      "Visceral Fat Rating (VFR)",
+      "Bone Mass (BM)",
+      "Muscle Mass (MM)",
+      "Obesity (%)",
+      "Total Fat Content (TFC)",
+      "Visceral Fat Area (VFA)",
+      "Visceral Muscle Area (VMA) (Kg)",
+      "Hepatic Fat Accumulation (HFA)",
+      "Glucose",
+      "Total Cholesterol (TC)",
+      "Low Density Lipoprotein (LDL)",
+      "High Density Lipoprotein (HDL)",
+      "Triglyceride",
+      "Aspartat Aminotransferaz (AST)",
+      "Alanin Aminotransferaz (ALT)",
+      "Alkaline Phosphatase (ALP)",
+      "Creatinine",
+      "Glomerular Filtration Rate (GFR)",
+      "C-Reactive Protein (CRP)",
+      "Hemoglobin (HGB)",
+      "Vitamin D"
+    ],
+    "target_column": "Gallstone Status"
+  },
+  "performance": {
+    "task_type": "classification",
+    "delta_r": 0.4940902789495044,
+    "training_time_seconds": 18.960114,
+    "generation_time_seconds": 0.081014,
+    "samples_per_second": 12343.545560026661
+  },
+  "model_specific_metrics": {
+    "unique_ratio_original": 1.0,
+    "unique_ratio_synthetic": 1.0
+  },
+  "constraints": {
+    "original": {},
+    "synthetic": {}
+  }
+}

@@ -5,6 +5,8 @@ PyYAML>=6.0
 pydantic>=2.5
 sdv>=1.5
 lightgbm>=4.2
+xgboost>=2.0
+
 
 
 # 可选依赖 - TabDDPM

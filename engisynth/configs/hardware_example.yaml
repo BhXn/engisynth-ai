@@ -96,5 +96,5 @@ normalization:
 generator:
   type: constrained_ctgan
   epochs: 500
-  batch_size: 32
+  batch_size: 40
   max_rejection_samples: 20000
