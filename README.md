@@ -103,7 +103,7 @@ python -m engisynth.cli.run_pipeline \
 python engisynth/scripts/auto_detect_constraints.py \
     --csv engisynth/data/hardware_test.csv \
     --out engisynth/configs/hardware_test_autogen.yaml \
-    --target performance_score
+    --target "performance_score"
 ```
 ## 约束处理流程
 

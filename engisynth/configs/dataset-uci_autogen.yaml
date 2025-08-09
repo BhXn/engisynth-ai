@@ -1,7 +1,7 @@
 dataset: /Users/orion/Documents/td/engisynth-ai/engisynth/data/dataset-uci.csv
-target: GallstoneStatus
+target: Gallstone Status
 feature_types:
-  GallstoneStatus: categorical
+  Gallstone Status: categorical
   Age: numerical
   Gender: categorical
   Comorbidity: categorical
@@ -40,122 +40,7 @@ feature_types:
   C-Reactive Protein (CRP): numerical
   Hemoglobin (HGB): numerical
   Vitamin D: numerical
-constraints:
-- type: range
-  cols:
-  - GallstoneStatus
-  min: 0.0
-  max: 1.0
-- type: range
-  cols:
-  - Age
-  min: 20.18
-  max: 75.82
-- type: range
-  cols:
-  - Gender
-  min: 0.0
-  max: 1.0
-- type: range
-  cols:
-  - Comorbidity
-  min: 0.0
-  max: 1.0
-- type: range
-  cols:
-  - Coronary Artery Disease (CAD)
-  min: 0.0
-  max: 1.0
-- type: range
-  cols:
-  - Hypothyroidism
-  min: 0.0
-  max: 1.0
-- type: range
-  cols:
-  - Hyperlipidemia
-  min: 0.0
-  max: 1.0
-- type: range
-  cols:
-  - Diabetes Mellitus (DM)
-  min: 0.0
-  max: 1.0
-- type: range
-  cols:
-  - Height
-  min: 146.18
-  max: 188.0
-- type: range
-  cols:
-  - Weight
-  min: 48.918
-  max: 120.15
-- type: range
-  cols:
-  - Body Mass Index (BMI)
-  min: 18.636
-  max: 45.202
-- type: range
-  cols:
-  - Total Body Water (TBW)
-  min: 27.018
-  max: 57.31
-- type: range
-  cols:
-  - Extracellular Water (ECW)
-  min: 11.0
-  max: 23.482
-- type: range
-  cols:
-  - Intracellular Water (ICW)
-  min: 14.836
-  max: 34.428
-- type: range
-  cols:
-  - Extracellular Fluid/Total Body Water (ECF/TBW)
-  min: 34.1296
-  max: 48.82
-- type: range
-  cols:
-  - Aspartat Aminotransferaz (AST)
-  min: 9.18
-  max: 66.56
-- type: range
-  cols:
-  - Alanin Aminotransferaz (ALT)
-  min: 7.0
-  max: 102.82
-- type: range
-  cols:
-  - Alkaline Phosphatase (ALP)
-  min: 16.62
-  max: 143.2
-- type: range
-  cols:
-  - Creatinine
-  min: 0.5
-  max: 1.2828
-- type: range
-  cols:
-  - Glomerular Filtration Rate (GFR)
-  min: 45.3708
-  max: 128.2696
-- type: range
-  cols:
-  - C-Reactive Protein (CRP)
-  min: 0.0
-  max: 29.83
-- type: range
-  cols:
-  - Hemoglobin (HGB)
-  min: 10.0
-  max: 18.146
-- type: range
-  cols:
-  - Vitamin D
-  min: 4.918
-  max: 46.738
+constraints: []
 generator:
   type: ctgan
   epochs: 300
